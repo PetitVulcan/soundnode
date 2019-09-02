@@ -7,7 +7,7 @@
     background-color: #343A40;
     color: white;
 }
-.btn :hover
+.btn:hover
 {
     background-color: rgb(74, 79, 85);
 }
