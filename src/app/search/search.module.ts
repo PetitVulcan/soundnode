@@ -1,12 +1,13 @@
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search/search.component';
+import { Routes } from '@angular/router';
 
-@Component({
-  selector:'search-root',
-  templateUrl:'./search/search.component.html',
-  styleUrls:['./search/search.component.css']
-})
+const routes : Routes = [
+  {path:'',component:SearchComponent,children:[
+    {path:'search',component : SearchComponent },
+ ]}
+]
 
 @NgModule({
   declarations: [SearchComponent],
