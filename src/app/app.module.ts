@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { PlaylistComponent } from './playlist/playlist.component';
+import { PlaylistsComponent } from './playlists/playlists.component';
 import { Routes } from '@angular/router';
 
 const routes : Routes =[
@@ -17,7 +17,7 @@ const routes : Routes =[
   declarations: [
     AppComponent,
     SidebarComponent,
-    PlaylistComponent
+    PlaylistsComponent
   ],
   imports: [
     BrowserModule,
