@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { PlaylistComponent } from './playlist/playlist.component';
 import { Routes, RouterModule } from '@angular/router';
+import { PlaylistsComponent } from './playlists/playlists.component';
+
 
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
@@ -17,7 +18,7 @@ const routes : Routes =[
   declarations: [
     AppComponent,
     SidebarComponent,
-    PlaylistComponent
+    PlaylistsComponent
   ],
   imports: [
     BrowserModule,
