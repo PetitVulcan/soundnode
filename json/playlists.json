@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Repos du guerrier",
+        "tracks": [
+            4,
+            7,
+            11
+        ]
+    },
+    {
+        "id": 2,
+        "title": "En Avant Guingamp",
+        "tracks": [
+            2,
+            5
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Les idées me manquent",
+        "tracks": [
+            1,
+            3,
+            6,
+            8,
+            12
+        ]
+    }
+]

@@ -1,1 +1,3 @@
-<p>playlists works!</p>
+<div *ngFor="let p of playlists" playlist="p">
+    <a routerLink="/tracks/tracks">{{ p.title }}</a>
+</div>
