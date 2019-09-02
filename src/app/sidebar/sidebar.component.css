@@ -1,0 +1,17 @@
+.leftMenu
+{
+    background-color: #343A40
+}
+.btn
+{
+    background-color: #343A40;
+    color: white;
+}
+.btn :hover
+{
+    background-color: rgb(74, 79, 85);
+}
+.fas
+{
+    margin-right: 15px;
+}
