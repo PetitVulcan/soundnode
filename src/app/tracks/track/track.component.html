@@ -1,13 +1,13 @@
 <div class="card" style="width: 16rem;">
-    <img src="../../../assets/img/1024350enNqqZTx.jpg" class="card-img-top" alt="...">
+    <img src="assets/music/{{ track.album }}/cover.png" class="card-img-top" alt="...">
     <div class="card-img-overlay" style="float:right">
         <button type="button" class="btn btn-sm" style="float:right">#MusicStyle</button>
     </div>
     <div class="card-body">
-        <h5 class="card-title">Song title</h5>
-        <p class="card-text">Description de la musique en cours: timer, artiste, nom de la chanson</p>
-        <button type="button" class="btn">
-            <a routerlink="/tracks/track"><i class="fas fa-heart"></i></a>
+        <h5 class="card-title">{{ track.title }}</h5>
+        <p class="card-text">{{ track.album }}</p>
+        <button type="button" class="btn" (click)="like()">
+            <a><i class="fas fa-heart {{ track.likes ? 'color-select' : '' }}"></i></a>
         </button>
         <button type="button" class="btn">
             <a routerlink="/tracks/track"><i class="fas fa-retweet"></i></a>

@@ -12,6 +12,7 @@ export class PlaylistsComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
+    // FIXME: change user id.
     this.data.getApi('get-playlists/1').subscribe(
       (res: any) => {
         if (res.error) {

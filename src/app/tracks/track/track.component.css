@@ -22,3 +22,8 @@
     background-color: darkgray;
     color: black
 }
+
+.card-img-overlay {
+    bottom: auto;
+    left: auto;
+}

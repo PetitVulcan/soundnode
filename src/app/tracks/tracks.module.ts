@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { TrackComponent } from './track/track.component';
 import { TracksComponent } from './tracks/tracks.component';
 import { Routes, RouterModule } from '@angular/router';
+import { TrackService } from 'src/app/track.service';
 
 const routes : Routes = [
-  {path:'',component:TrackComponent,children:[
+  {path:'',component:TracksComponent,children:[
     {path:'track',component : TrackComponent },
     {path:'tracks',component  : TracksComponent},
   ]}
@@ -21,6 +22,7 @@ const routes : Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
+  providers: [TrackService],
   bootstrap : [TrackComponent]
 })
 export class TracksModule { }
