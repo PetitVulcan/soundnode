@@ -1,11 +1,18 @@
-<div class="row">
-  <!-- <app-search></app-search> -->
-</div>
+<header>
+  <div class="row" style="background-color: rgb(255, 81, 0)">
+    <div class="hauteur" style="height: 2px"></div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-search></app-search>
+    </div>
+  </div>
+</header>
 <div class="row">
   <div class="col-2">
-    <app-sidebar></app-sidebar>
+      <app-sidebar></app-sidebar>
   </div>
-  <div class="col-10">
-    <router-outlet></router-outlet>
+  <div class="col-10 nopad">
+      <router-outlet></router-outlet>
   </div>
 </div>

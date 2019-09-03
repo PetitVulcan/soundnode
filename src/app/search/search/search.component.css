@@ -1,0 +1,32 @@
+.row{
+    background-color: rgb(26, 26, 26);
+}
+
+.form-control{
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid rgb(131, 130, 130);
+    margin-bottom: 10px; 
+    padding: 10px;
+    background-color: rgb(26, 26, 26);
+    color: rgb(131, 130, 130);
+}
+
+.form-inline{
+    text-decoration: rgb(131, 130, 130);
+}
+
+.fas{
+    color: rgb(131, 130, 130);
+}
+
+.fa-search{
+    margin-top: 5px;
+}
+
+.btn{
+    box-shadow: none;
+    background-color: #1A1A1A;
+    margin-top: 5px;
+}
+

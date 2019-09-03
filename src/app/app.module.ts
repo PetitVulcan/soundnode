@@ -8,6 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search/search.component';
 
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
@@ -22,6 +23,7 @@ const routes : Routes =[
     AppComponent,
     SidebarComponent,
     PlaylistsComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
