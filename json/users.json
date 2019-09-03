@@ -2,7 +2,11 @@
     {
         "id": 1,
         "login": "majora",
-        "password": "majora",
+        "nom": "Delattre",
+        "prenom": "Thomas",
+        "email": "majora@majora.fr",
+        "mdp": "majora",
+        "cMdp":"majora",
         "playlists": [
             1,
             3
@@ -16,11 +20,20 @@
     },
     {
         "id": 2,
-        "login": "bobby",
-        "password": "bobby",
+        "login": "PetitVulcan",
+        "nom": "Di persio",
+        "prenom": "Anthony",
+        "email": "petivulcan@bjork.fr",
+        "mdp": "pv",
+        "cMdp":"pv",
         "playlists": [
             2
         ],
-        "likes": []
+        "likes": [
+            1,
+            3,
+            8,
+            7
+        ]
     }
 ]

@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
+  {path: 'user', loadChildren:() =>import('./user/user.module').then((mod)=>mod.UserModule)},
   {path: 'tracks', loadChildren:() =>import('./tracks/tracks.module').then((mod)=>mod.TracksModule)},
   {path: 'search', loadChildren:() =>import('./search/search.module').then((mod)=>mod.SearchModule)},
   { path: 'playlists', component: PlaylistsComponent },

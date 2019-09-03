@@ -1,1 +1,25 @@
-<p>sign-in works!</p>
+<div>
+    <form [formGroup]="formAddUser" (ngSubmit)="valider()">
+        <div>
+            <input type='text' formControlName="pseudo" placeholder="Votre pseudo" />
+        </div>
+        <div>
+            <input type='text' formControlName="nom" placeholder="Votre nom" />
+        </div>
+        <div>
+            <input type='text' formControlName="prenom" placeholder="Votre prénom" />
+        </div>
+        <div>
+            <input type='email' formControlName="email" placeholder="Votre email" />
+        </div>
+        <div>
+            <input type='password' formControlName="mdp" placeholder="Saisissez le mot de passe" />
+        </div>
+        <div>
+            <input type='password' formControlName="cMdp" placeholder="Confirmer le mot de passe" />
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+        </div>
+    </form>
+</div>

@@ -68,6 +68,18 @@ app.get('/get-user/:id', (req, res) => {
     }
 });
 
+app.post('/addUser',function(req,res){
+    let data = req.body;
+    let lastId = users[users.length-1].id;
+    try {
+        users.push({id : lastId+1, ...data});
+        fs.writeFileSync('public/users.json',JSON.stringify(users));
+        res.json({error:false});
+    }catch(e){
+        res.json({error:true})
+    }
+})
+
 app.get('/user-like-track/:user_id/:track_id/:is_liked', (req, res) => {
     const userId = Number(req.params.user_id);
     const user = users.find((u) => u.id === userId);
