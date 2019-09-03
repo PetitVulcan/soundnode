@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { DataService } from './data.service';
+import { PlayerComponent } from './player/player.component';
 
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
@@ -22,6 +23,7 @@ const routes : Routes =[
     AppComponent,
     SidebarComponent,
     PlaylistsComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,

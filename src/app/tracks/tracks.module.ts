@@ -10,9 +10,8 @@ const routes: Routes = [
     path: '',
     component: TracksComponent,
     children: [
-      { path: 'tracks', component: TracksComponent },
-      { path: 'playlist/:id', component: TracksComponent },
-      { path: 'likes', component: TracksComponent },
+      { path: ':type', component: TracksComponent },
+      { path: ':type/:id', component: TracksComponent },
     ]
   }
 ];

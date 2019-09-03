@@ -18,7 +18,11 @@ export class TracksComponent implements OnInit {
     private data: DataService,
     private router: Router,
     private ar: ActivatedRoute,
-  ) { }
+  ) {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => {
+        return false;
+      };
+  }
 
   ngOnInit() {
     // Equivalent to const url = this.router.url;
@@ -68,7 +72,7 @@ export class TracksComponent implements OnInit {
       },
       (err: any) => {
         alert('Server error.');
-      }
+      },
     );
   }
 }
