@@ -1,17 +1,46 @@
 .leftMenu
 {
-    background-color: #343A40
+    background-color: rgb(34, 34, 36)
 }
-.btn
-{
-    background-color: #343A40;
-    color: white;
+
+.nomPrenom{
+    color: white
 }
-.btn:hover
+
+.loginLogout{
+    color: rgb(131, 130, 130)
+}
+
+.main{
+    color: rgb(131, 130, 130)
+}
+
+.btn{
+    background-color: rgb(34, 34, 36);
+    color: rgb(131, 130, 130)
+}
+
+.btn:hover{
+    background-color: rgb(50, 50, 54);
+    color: white
+}
+
+.btn a
 {
-    background-color: rgb(74, 79, 85);
+    background-color: rgba(34, 34, 36, 0);
+    color: lightgrey;
+    text-decoration: none
+}
+.btn a:hover
+{
+    background-color: rgb(50, 50, 54);
+    color: white
 }
 .fas
 {
     margin-right: 15px;
+}
+
+.col-2{
+    margin-top: 20px;
 }
