@@ -79,7 +79,7 @@ app.post('/addUser',function(req,res){
     let lastId = users[users.length-1].id;
     try {
         users.push({id : lastId+1, ...data});
-        fs.writeFileSync('public/users.json',JSON.stringify(users));
+        fs.writeFileSync('json/users.json',JSON.stringify(users));
         res.json({error:false});
     }catch(e){
         res.json({error:true})
@@ -88,7 +88,7 @@ app.post('/addUser',function(req,res){
 
 app.post('/isLogged',function(req,res){
     let data = req.body;
-    let user = userAccess.find(x=>x.id ==data.id && x.token == data.token);
+    let user = users.find(x=>x.id ==data.id && x.token == data.token);
     if(user)
     {
         res.json({access:true});
@@ -100,10 +100,10 @@ app.post('/isLogged',function(req,res){
 
 app.post('/login',function(req,res){
     let data = req.body;
-    let user = userAccess.find(x=>x.login ==data.login && x.mdp == data.mdp);
+    let user = users.find(x=>x.login ==data.login && x.mdp == data.mdp);
     if(user){
         user.token = token();
-        fs.writeFileSync('json/users.json',JSON.stringify(userAccess));
+        fs.writeFileSync('json/users.json',JSON.stringify(users));
         res.json({logged:true, token : user.token, userId:user.id})
     }
     else {
