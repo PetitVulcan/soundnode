@@ -5,7 +5,13 @@ const fs = require('fs');
 const bodyparser = require('body-parser');
 
 const users = JSON.parse(fs.readFileSync('./json/users.json', 'utf-8'));
+const rand = function() {
+    return Math.random().toString(36).substr(2);
+};
 
+const token = function() {
+    return rand() + rand(); 
+};
 app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
@@ -77,6 +83,31 @@ app.post('/addUser',function(req,res){
         res.json({error:false});
     }catch(e){
         res.json({error:true})
+    }
+})
+
+app.post('/isLogged',function(req,res){
+    let data = req.body;
+    let user = userAccess.find(x=>x.id ==data.id && x.token == data.token);
+    if(user)
+    {
+        res.json({access:true});
+    }
+    else {
+        res.json({access:false});
+    }
+})
+
+app.post('/login',function(req,res){
+    let data = req.body;
+    let user = userAccess.find(x=>x.login ==data.login && x.mdp == data.mdp);
+    if(user){
+        user.token = token();
+        fs.writeFileSync('json/users.json',JSON.stringify(userAccess));
+        res.json({logged:true, token : user.token, userId:user.id})
+    }
+    else {
+        res.json({logged:false});
     }
 })
 
