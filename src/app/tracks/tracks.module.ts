@@ -5,17 +5,22 @@ import { TracksComponent } from './tracks/tracks.component';
 import { Routes, RouterModule } from '@angular/router';
 import { TrackService } from 'src/app/track.service';
 
-const routes : Routes = [
-  {path:'',component:TracksComponent,children:[
-    {path:'track',component : TrackComponent },
-    {path:'tracks',component  : TracksComponent},
-  ]}
-]
+const routes: Routes = [
+  {
+    path: '',
+    component: TracksComponent,
+    children: [
+      { path: 'tracks', component: TracksComponent },
+      { path: 'playlist/:id', component: TracksComponent },
+      { path: 'likes', component: TracksComponent },
+    ]
+  }
+];
 
 
 @NgModule({
   declarations: [
-    TrackComponent, 
+    TrackComponent,
     TracksComponent
   ],
   imports: [

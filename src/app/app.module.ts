@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { Routes, RouterModule } from '@angular/router';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { DataService } from './data.service';
-import { HttpClientModule } from '@angular/common/http';
 
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
