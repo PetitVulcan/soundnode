@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { DataService } from './data.service';
+import { SearchComponent } from './search/search/search.component';
 import { PlayerComponent } from './player/player.component';
 
 const routes : Routes =[
@@ -23,6 +24,7 @@ const routes : Routes =[
     AppComponent,
     SidebarComponent,
     PlaylistsComponent,
+    SearchComponent,
     PlayerComponent,
   ],
   imports: [
