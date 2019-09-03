@@ -5,6 +5,7 @@ const fs = require('fs');
 const bodyparser = require('body-parser');
 
 const users = JSON.parse(fs.readFileSync('./json/users.json', 'utf-8'));
+const playlists = JSON.parse(fs.readFileSync('./json/playlists.json', 'utf-8'));
 const rand = function() {
     return Math.random().toString(36).substr(2);
 };
@@ -22,18 +23,14 @@ app.use((req, res, next) => {
 });
 
 app.get('/get-playlists/:user_id', (req, res) => {
-    const id = Number(req.params.user_id);
-    const user = users.find((u) => u.id === id);
+    const userId = Number(req.params.user_id);
+    const user = users.find((u) => u.id === userId);
 
     if (user) {
-        const playlistsJSON = JSON.parse(
-            fs.readFileSync('./json/playlists.json', 'utf-8'),
-        );
+        if (playlists) {
+            const userPlaylists = playlists.filter((p) => user.playlists.includes(p.id));
 
-        if (playlistsJSON) {
-            const playlists = playlistsJSON.filter((p) => user.playlists.includes(p.id));
-
-            res.json({ error: false, playlists });
+            res.json({ error: false, playlists: userPlaylists });
         } else {
             res.json({ error: true });
         }
@@ -42,22 +39,12 @@ app.get('/get-playlists/:user_id', (req, res) => {
     }
 });
 
-app.get('/get-playlists/:user_id', (req, res) => {
-    const userId = Number(req.params.user_id);
-    const user = users.find((u) => u.id === userId);
+app.get('/get-playlist/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const playlist = playlists.find((p) => p.id === id);
 
-    if (user) {
-        const playlistsJSON = JSON.parse(
-            fs.readFileSync('./json/playlists.json', 'utf-8'),
-        );
-
-        if (playlistsJSON) {
-            const playlists = playlistsJSON.filter((p) => user.playlists.includes(p.id));
-
-            res.json({ error: false, playlists });
-        } else {
-            res.json({ error: true });
-        }
+    if (playlist) {
+        res.json({ error: false, playlist });
     } else {
         res.json({ error: true });
     }
