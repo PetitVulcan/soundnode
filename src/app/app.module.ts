@@ -11,6 +11,11 @@ import { DataService } from './data.service';
 import { SearchComponent } from './search/search/search.component';
 import { PlayerComponent } from './player/player.component';
 import { UserStatusComponent } from './user/user-status/user-status.component';
+import { AlertComponent } from './user/alert/alert.component';
+import { LoginComponent } from './user/login/login.component';
+import { LoaderComponent } from './user/loader/loader.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
@@ -27,15 +32,22 @@ const routes : Routes =[
     PlaylistsComponent,
     SearchComponent,
     PlayerComponent,
-    UserStatusComponent
+    UserStatusComponent,
+    AlertComponent,
+    LoginComponent,
+    SignInComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    HttpClientModule,    
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents : [AlertComponent, LoginComponent, SignInComponent, LoaderComponent]
 })
 export class AppModule { }
