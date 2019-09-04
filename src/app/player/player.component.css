@@ -1,0 +1,64 @@
+#progress-bar, #volume-bar {
+    position: relative;
+    width: 98%;
+    height: 8px;
+    margin: 0 auto;
+    background-color: #4E4E51;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#progress-bar-current, #volume-bar-current {
+    height: 8px;
+    width: 0;
+    background-color: #FF5400;
+}
+
+.circle {
+    display: inline-block;
+    position: absolute;
+    top: -4px;
+    left: -7px;
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    background-color: #FF7A00;
+    cursor: pointer;
+}
+
+#player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: #242426;
+}
+
+#player i, #volume-bar {
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#controls {
+    margin-top: 10px;
+}
+
+#timestamps, #buttons {
+    float: left;
+    width: 50%;
+}
+
+#source-title {
+    width: 50%;
+}
+
+#volume-icon {
+    width: 18px;
+}
+
+#volume-bar {
+    width: 100px;
+    margin-top: 4px;
+}

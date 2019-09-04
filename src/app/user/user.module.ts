@@ -6,7 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DataService } from '../data.service';
+<<<<<<< HEAD
 import { UserComponent } from './user/user.component';
+=======
+import { UserStatusComponent } from './user-status/user-status.component';
+import { AlertComponent } from './alert/alert.component';
+import { LoaderComponent } from './loader/loader.component';
+>>>>>>> e834b5e2190fa09d64037fd5d0c135c64496f4ec
 
 const mesRoutes : Routes = [
   {
@@ -21,7 +27,13 @@ const mesRoutes : Routes = [
   declarations: [
     LoginComponent,
     SignInComponent,
+<<<<<<< HEAD
     UserComponent
+=======
+    UserStatusComponent,
+    AlertComponent,
+    LoaderComponent
+>>>>>>> e834b5e2190fa09d64037fd5d0c135c64496f4ec
   ],
   imports: [
     CommonModule,
@@ -31,6 +43,10 @@ const mesRoutes : Routes = [
     RouterModule.forChild(mesRoutes)    
   ],
   providers: [DataService],
+<<<<<<< HEAD
   bootstrap: [UserComponent]
+=======
+  // bootstrap: [UserComponent]
+>>>>>>> e834b5e2190fa09d64037fd5d0c135c64496f4ec
 })
 export class UserModule { }
