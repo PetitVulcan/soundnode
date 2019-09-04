@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TrackService } from 'src/app/track.service';
 import { DataService } from 'src/app/data.service';
+import { SearchService } from 'src/app/search.service';
 
 @Component({
   selector: 'app-tracks',
@@ -16,6 +17,7 @@ export class TracksComponent implements OnInit {
   constructor(
     private ts: TrackService,
     private data: DataService,
+    private ss: SearchService,
     private router: Router,
     private ar: ActivatedRoute,
   ) {
@@ -50,6 +52,14 @@ export class TracksComponent implements OnInit {
                   const { playlist } = res2;
 
                   tracks = this.ts.tracks.filter((t) => playlist.tracks.includes(t.id));
+
+                  this.ss.searchQueryObservable.subscribe((v) => {
+                    this.tracks = tracks.filter((t) => {
+                      return t.title.toLowerCase().includes(v)
+                        || t.album.toLowerCase().includes(v);
+                      });
+                  });
+
                   this.tracks = tracks;
                 }
               },
@@ -65,6 +75,13 @@ export class TracksComponent implements OnInit {
             if (this.user.likes.includes(t.id)) {
               t.likes = true;
             }
+          });
+
+          this.ss.searchQueryObservable.subscribe((v) => {
+            this.tracks = tracks.filter((t) => {
+              return t.title.toLowerCase().includes(v)
+                || t.album.toLowerCase().includes(v);
+              });
           });
 
           this.tracks = tracks;
