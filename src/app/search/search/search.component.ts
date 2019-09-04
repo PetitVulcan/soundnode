@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SearchService } from 'src/app/search.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
+  filter: string;
 
-  constructor() { }
+  constructor(
+    private ss: SearchService,
+  ) { }
 
-  ngOnInit() {
+  filterUpdate = (): void => {
+    const filter = this.filter.toLowerCase();
+    this.ss.searchQueryObservable.next(filter);
   }
-
 }

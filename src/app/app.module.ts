@@ -2,12 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { DataService } from './data.service';
+import { TrackService } from './track.service';
+import { SearchService } from './search.service';
 import { SearchComponent } from './search/search/search.component';
 import { PlayerComponent } from './player/player.component';
 
@@ -32,8 +35,13 @@ const routes : Routes =[
     AppRoutingModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    FormsModule,
   ],
-  providers: [DataService],
+  providers: [
+    DataService,
+    TrackService,
+    SearchService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
