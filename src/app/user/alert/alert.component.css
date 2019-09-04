@@ -1,0 +1,19 @@
+.frontPopUp {
+    position: fixed;
+    top : 50px;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    padding: 10px;
+    z-index: 9999;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    background-color: #fefefe;
+}
+.backPopUp {
+    position: fixed;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(59, 59, 59, 0.4);
+}

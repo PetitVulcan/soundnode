@@ -6,7 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { DataService } from '../data.service';
-import { AppComponent } from '../app.component';
+import { UserStatusComponent } from './user-status/user-status.component';
+import { AlertComponent } from './alert/alert.component';
+import { LoaderComponent } from './loader/loader.component';
+import { UserComponent } from './user/user.component';
 
 const mesRoutes : Routes = [
   {
@@ -20,7 +23,10 @@ const mesRoutes : Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    SignInComponent
+    SignInComponent,
+    UserStatusComponent,
+    AlertComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +36,6 @@ const mesRoutes : Routes = [
     RouterModule.forChild(mesRoutes)    
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [UserComponent]
 })
 export class UserModule { }

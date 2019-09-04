@@ -1,0 +1,16 @@
+.center
+{
+    display:flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    float: center;
+}
+.lien
+{
+     color:white;
+     margin:5px;
+}
+.lien:hover
+{
+     color:orangered;
+}
