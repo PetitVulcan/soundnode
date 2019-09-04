@@ -11,6 +11,10 @@ import { DataService } from './data.service';
 import { SearchComponent } from './search/search/search.component';
 import { PlayerComponent } from './player/player.component';
 import { UserStatusComponent } from './user/user-status/user-status.component';
+import { AlertComponent } from './user/alert/alert.component';
+import { LoginComponent } from './user/login/login.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
+import { LoaderComponent } from './user/loader/loader.component';
 
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
@@ -36,6 +40,7 @@ const routes : Routes =[
     HttpClientModule,    
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //entryComponents : [AlertComponent, LoginComponent, SignInComponent, LoaderComponent]
 })
 export class AppModule { }

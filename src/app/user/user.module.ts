@@ -35,6 +35,7 @@ const mesRoutes : Routes = [
     RouterModule.forChild(mesRoutes)    
   ],
   providers: [DataService],
+  entryComponents : [AlertComponent, LoginComponent, SignInComponent, LoaderComponent]
   // bootstrap: [UserComponent]
 })
 export class UserModule { }
