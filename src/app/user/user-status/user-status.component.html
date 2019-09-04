@@ -1,14 +1,39 @@
 <div class="container">
-    <!-- a mettre dans un *Ngif -->
-    <div class="center row">
-        
-        <div class="lien"(click)="loadComponentLogin()">Login</div>
-        <div class="lien"> / </div>
-        <div class="lien"(click)="loadComponentSignIn()">Sign In</div>
-        
-    </div>  
-    <div class="row" #popup></div>
-    <!--  -->
+    <div class="center">
+        <div *ngIf="token==''; else logged">
+            <div class="row menu">
+                <div class="lien" (click)="loadComponentLogin()">Login</div>
+                <div class="white"> / </div>
+                <div class="lien" (click)="loadComponentSignIn()">Sign In</div>
+            </div>
+        </div>
+        <ng-template #logged>
+            <div class="row menu">
+                <div class="user">
+                    {{user}}
+                </div>
+            </div>
+        </ng-template>
+        <div class="row" #popup></div>
+    </div>
 </div>
-
-
+<!-- <div class="container">
+    <div class="center">
+        <ng-template [ngIf]="token==''">
+            <div>
+                <div class="row menu">
+                    <div class="lien" (click)="loadComponentLogin()">Login</div>
+                    <div class="white"> / </div>
+                    <div class="lien" (click)="loadComponentSignIn()">Sign In</div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template [ngIf]="token!=''">
+            <div class="row menu">
+                {{user}}
+            </div>
+        </ng-template>
+        
+        <div class="row" #popup></div>
+    </div>
+</div> -->

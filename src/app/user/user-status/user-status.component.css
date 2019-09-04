@@ -1,9 +1,15 @@
 .center
 {
-    display:flex;
+     text-align: center;
+}
+.menu
+{
     padding-top: 15px;
-    padding-bottom: 15px;
-    float: center;
+}
+.white
+{
+     color:white;
+     margin:5px;
 }
 .lien
 {
@@ -13,4 +19,8 @@
 .lien:hover
 {
      color:orangered;
+}
+.user
+{
+     color:white;
 }

@@ -18,18 +18,17 @@ export class LoginComponent implements OnInit {
   }
   logIn =() => {
     this.displayLoader = true;
-    this.data.postApi('login',{login:this.login, mdp:this.mdp}).subscribe((res:any)=> {
-      setTimeout(()=> {
+    this.data.postApi('login',{login:this.login, mdp:this.mdp}).subscribe((res:any)=> {      
         if(res.logged){
-          localStorage.setItem('token',res.token);
-          localStorage.setItem('userId',res.userId);
-          this.router.navigate(['/'])
+          localStorage.setItem('token',res.user.token);
+          localStorage.setItem('userlogin',res.user.login);
+          localStorage.setItem('userId',res.user.id);
+          this.router.navigate(['/tracks'])
         }
         else {
           alert("Erreur connection");
         }
-        this.displayLoader = false;
-      },2000);
+        this.displayLoader = false;     
     })
   }
 }

@@ -13,14 +13,19 @@ const rand = function() {
 const token = function() {
     return rand() + rand(); 
 };
-app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.urlencoded({extended : true}));
+app.use(bodyparser.json())
+//CROS
 
-app.use((req, res, next) => {
-    res.header('Access-control-Allow-origin', '*');
-    res.header('Access-control-Allow-headers', 'content-type');
-    res.header('Access-control-Allow-methods', 'GET');
+app.use(function(req,res,next){
+    //Accept ALL origins
+    res.header("Access-control-Allow-origin","*");
+    //Accept All headers
+    res.header("Access-control-Allow-headers","content-type");
+    //Accept GET POST OPTIONS Verbs
+    res.header("Access-control-Allow-methods","GET,POST");
     next();
-});
+})
 
 app.get('/get-playlists/:user_id', (req, res) => {
     const userId = Number(req.params.user_id);
@@ -65,8 +70,9 @@ app.post('/addUser',function(req,res){
     let data = req.body;
     let lastId = users[users.length-1].id;
     try {
+        console.log(data);
         users.push({id : lastId+1, ...data});
-        fs.writeFileSync('json/users.json',JSON.stringify(users));
+        fs.writeFileSync('json/users.json',JSON.stringify(users,null,4));
         res.json({error:false});
     }catch(e){
         res.json({error:true})
@@ -75,10 +81,12 @@ app.post('/addUser',function(req,res){
 
 app.post('/isLogged',function(req,res){
     let data = req.body;
+    
     let user = users.find(x=>x.id ==data.id && x.token == data.token);
     if(user)
     {
-        res.json({access:true});
+        console.log(user);
+        res.json({access:true});       
     }
     else {
         res.json({access:false});
@@ -91,7 +99,7 @@ app.post('/login',function(req,res){
     if(user){
         user.token = token();
         fs.writeFileSync('json/users.json',JSON.stringify(users));
-        res.json({logged:true, token : user.token, userId:user.id})
+        res.json({logged:true,user})
     }
     else {
         res.json({logged:false});

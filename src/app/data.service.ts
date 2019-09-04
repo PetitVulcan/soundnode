@@ -10,4 +10,5 @@ export class DataService {
   getApi = (link) => this.http.get(`${this.baseUrl}${link}`);
 
   postApi = (link, data) => this.http.post(`${this.baseUrl}${link}`, data);
+
 }

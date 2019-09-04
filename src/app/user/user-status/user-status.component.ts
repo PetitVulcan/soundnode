@@ -13,20 +13,23 @@ import { LoaderComponent } from '../loader/loader.component';
 export class UserStatusComponent implements OnInit {
 
   @ViewChild("popup", { static: false, read: ViewContainerRef }) maPopUp: ViewContainerRef;
-  
+  user;
+  token;
   constructor(private resolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
+    const token = (localStorage.getItem('token')  ) ? localStorage.getItem('token') : '';
+    const user = localStorage.getItem('userlogin');
+    this.user=user;
+    this.token = token;
+    console.log('ok',this.token,this.user);
   }
   loadComponentLogin = () => {
     this.loadComponentLoader();
-    setTimeout(() => {
-      this.maPopUp.clear();
-      const factory = this.resolver.resolveComponentFactory(AlertComponent);
-
-      const element = this.maPopUp.createComponent(factory);
-      element.instance.config = { type: LoginComponent, parentContainer: this.maPopUp }
-    }, 3000)
+    this.maPopUp.clear();
+    const factory = this.resolver.resolveComponentFactory(AlertComponent);
+    const element = this.maPopUp.createComponent(factory);
+    element.instance.config = { type: LoginComponent, parentContainer: this.maPopUp }
   }
   loadComponentSignIn = () => {
     this.maPopUp.clear();

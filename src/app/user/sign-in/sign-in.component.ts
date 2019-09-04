@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { DataService } from '../../data.service';
 import { UserModel } from '../../models/user.model';
-import { FormBuilder, FormGroup } from "@angular/forms";
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -11,7 +12,6 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 export class SignInComponent implements OnInit {
   user: UserModel;
   formAddUser: FormGroup = this.fb.group({
-    'id': [''],
     'pseudo': [''],
     'nom': [''],
     'prenom': [''],
@@ -25,7 +25,7 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
   valider = () => {
-    this.data.postApi('addUser', this.formAddUser.value).subscribe((res: any) => {
+    this.data.postApi('addUser', {...this.formAddUser.value}).subscribe((res: any) => {
       if (res.error) {
         alert("Error insertion");
       }
