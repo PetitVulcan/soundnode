@@ -1,5 +1,11 @@
 <div class="card" style="width: 14rem;">
-    <img src="assets/music/{{ track.album }}/cover.png" class="card-img-top" alt="...">
+    <img
+        src="assets/music/{{ track.album }}/cover.png"
+        class="card-img-top"
+        alt="{{ track.title }}"
+        title="{{ track.title }}"
+        (click)="play()"
+    />
     <div class="card-img-overlay" style="float:right">
         <button type="button" class="btn btn-sm" style="float:right">#MusicStyle</button>
     </div>
