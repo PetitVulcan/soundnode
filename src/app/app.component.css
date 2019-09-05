@@ -2,14 +2,14 @@
     background-color: rgb(34, 34, 36);
 }
 
-.col-10{
-    background-color: rgb(26, 26, 26);
-}
-
 .height{
     background-color: rgb(255, 123, 0);
 }
 
 .nopad{
-    padding: 0px;
+    background-color: rgb(26, 26, 26);
+}
+
+.ombre{
+    box-shadow: inset 0px 1px 7px 0px black;
 }

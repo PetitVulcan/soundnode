@@ -30,3 +30,6 @@
     margin-top: 5px;
 }
 
+.ombre{
+    box-shadow: inset 0px 2px 5px 0px black;
+}
