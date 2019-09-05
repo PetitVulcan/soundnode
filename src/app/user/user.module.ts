@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 import { UserStatusComponent } from './user-status/user-status.component';
 import { AlertComponent } from './alert/alert.component';
 import { LoaderComponent } from './loader/loader.component';
+import { UserComponent } from './user/user.component';
 
 const mesRoutes : Routes = [
   {
@@ -35,6 +36,6 @@ const mesRoutes : Routes = [
     RouterModule.forChild(mesRoutes)    
   ],
   providers: [DataService],
-  // bootstrap: [UserComponent]
+  bootstrap: [UserComponent]
 })
 export class UserModule { }

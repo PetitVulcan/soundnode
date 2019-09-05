@@ -1,23 +1,25 @@
-<header>
-  <div class="row" style="background-color: rgb(255, 81, 0)">
-    <div class="hauteur" style="height: 2px"></div>
-  </div>
+<div class="container-fluid">
+  <header>
+    <div class="row" style="background-color: rgb(255, 81, 0)">
+      <div class="hauteur" style="height: 2px"></div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <app-search></app-search>
+      </div>
+    </div>
+  </header>
   <div class="row">
-    <div class="col-12">
-      <app-search></app-search>
+    <div class="col-2 ombre">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-10 nopad ombre border-left border-dark">
+      <router-outlet></router-outlet>
     </div>
   </div>
-</header>
-<div class="row">
-  <div class="col-2 ombre">
-      <app-sidebar></app-sidebar>
-  </div>
-  <div class="col-10 nopad border-left border-dark ombre">
-      <router-outlet></router-outlet>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <app-player></app-player>
+  <div class="row">
+    <div class="col">
+      <app-player></app-player>
+    </div>
   </div>
 </div>
