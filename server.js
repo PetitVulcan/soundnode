@@ -98,7 +98,7 @@ app.post('/login',function(req,res){
     let user = users.find(x=>x.login ==data.login && x.mdp == data.mdp);
     if(user){
         user.token = token();
-        fs.writeFileSync('json/users.json',JSON.stringify(users));
+        fs.writeFileSync('json/users.json',JSON.stringify(users, null, 4));
         res.json({logged:true,user})
     }
     else {
