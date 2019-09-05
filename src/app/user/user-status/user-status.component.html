@@ -9,8 +9,14 @@
         </div>
         <ng-template #logged>
             <div class="row menu">
+                <div class="col-2"></div>
                 <div class="user">
-                    {{user}}
+                    <div>
+                        {{user}}
+                    </div>
+                    <div class="white"> - </div>
+                    <div class="lien" (click)="LogOut()">LogOut</div>
+
                 </div>
             </div>
         </ng-template>
