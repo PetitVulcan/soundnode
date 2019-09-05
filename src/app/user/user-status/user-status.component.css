@@ -5,6 +5,8 @@
 .menu
 {
     padding-top: 15px;
+    padding-bottom: 10px; 
+    margin: 0px
 }
 .white
 {
@@ -23,4 +25,12 @@
 .user
 {
      color:white;
+}
+.logout
+{
+     font-size: 10px;
+}
+.logout:hover
+{
+     color:orangered;
 }

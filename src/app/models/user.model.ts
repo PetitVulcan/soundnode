@@ -1,5 +1,6 @@
 export interface UserModel {
     id;
+    imgUrl;
     login;
     nom;
     prenom;

@@ -106,6 +106,16 @@ app.post('/login',function(req,res){
     }
 })
 
+app.post('/logout', (req,res) => {
+    const status = req.body;
+    let result = {};
+    const u = users.find(x => x.id == status.id && x.token == status.token);
+    result.error = (u) ? false : true ;
+    u.token=null;
+    writefiles();
+    res.json(result)
+})
+
 app.get('/user-like-track/:user_id/:track_id/:is_liked', (req, res) => {
     const userId = Number(req.params.user_id);
     const user = users.find((u) => u.id === userId);

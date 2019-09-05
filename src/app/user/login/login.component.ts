@@ -16,14 +16,33 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  logIn =() => {
+  logOut = () =>{
+    this.displayLoader = true;
+    this.data.postApi('logOut',{login:this.login, mdp:this.mdp}).subscribe((res:any)=> {      
+        if(res.logged){
+          localStorage.setItem('token',res.user.token);
+          localStorage.setItem('userlogin',res.user.login);
+          localStorage.setItem('userId',res.user.id);
+          localStorage.setItem('userImg',res.user.imgUrl);
+          this.router.navigate(['/tracks'])
+          alert("User connected")
+        }
+        else {
+          alert("Erreur connection");
+        }
+        this.displayLoader = false;     
+    })
+  }
+  logIn = () => {
     this.displayLoader = true;
     this.data.postApi('login',{login:this.login, mdp:this.mdp}).subscribe((res:any)=> {      
         if(res.logged){
           localStorage.setItem('token',res.user.token);
           localStorage.setItem('userlogin',res.user.login);
           localStorage.setItem('userId',res.user.id);
+          localStorage.setItem('userImg',res.user.imgUrl);
           this.router.navigate(['/tracks'])
+          alert("User connected")
         }
         else {
           alert("Erreur connection");

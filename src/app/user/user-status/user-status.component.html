@@ -1,28 +1,34 @@
-<div class="container">
-    <div class="center">
-        <div *ngIf="token==''; else logged">
-            <div class="row menu">
-                <div class="lien" (click)="loadComponentLogin()">Login</div>
-                <div class="white"> / </div>
-                <div class="lien" (click)="loadComponentSignIn()">Sign In</div>
-            </div>
+<div class="center">
+    <div *ngIf="token==''; else logged">
+        <div class="row menu">
+            <div class="lien" (click)="loadComponentLogin()">Login</div>
+            <div class="white"> / </div>
+            <div class="lien" (click)="loadComponentSignIn()">Sign In</div>
         </div>
-        <ng-template #logged>
-            <div class="row menu">
-                <div class="col-2"></div>
-                <div class="user">
-                    <div>
-                        {{user}}
-                    </div>
-                    <div class="white"> - </div>
-                    <div class="lien" (click)="LogOut()">LogOut</div>
-
-                </div>
-            </div>
-        </ng-template>
-        <div class="row" #popup></div>
     </div>
 </div>
+<ng-template #logged>
+    <div class="row menu">
+        <div class="col-2">
+            <img src="{{imgUrl}}" height=45px>
+            <!-- <img src="../../../assets/img/1.jpg" height=45px> -->
+            <img src="../../../" alt="">
+        </div>
+        <div class="col-8">
+            <div class="user">
+                <div>
+                    {{user}}
+                </div>
+                <div class="logout" (click)="logOut()">
+                    LogOut
+                </div>
+
+            </div>
+        </div>
+    </div>
+</ng-template>
+<div class="row" #popup></div>
+
 <!-- <div class="container">
     <div class="center">
         <ng-template [ngIf]="token==''">

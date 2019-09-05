@@ -3,6 +3,8 @@ import { LoginComponent } from '../login/login.component';
 import { AlertComponent } from '../alert/alert.component';
 import { SignInComponent } from '../sign-in/sign-in.component';
 import { LoaderComponent } from '../loader/loader.component';
+import { DataService } from 'src/app/data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,15 +16,36 @@ export class UserStatusComponent implements OnInit {
 
   @ViewChild("popup", { static: false, read: ViewContainerRef }) maPopUp: ViewContainerRef;
   user;
+  userId;
+  imgUrl;
   token;
-  constructor(private resolver: ComponentFactoryResolver) { }
+  displayLoader = false
+  constructor(private resolver: ComponentFactoryResolver,private data:DataService, private router:Router) { }
 
   ngOnInit() {
     const token = (localStorage.getItem('token')  ) ? localStorage.getItem('token') : '';
     const user = localStorage.getItem('userlogin');
-    this.user=user;
+    const userId = localStorage.getItem('userId');
+    const userImg = localStorage.getItem('userImg');
+    this.user = user;
     this.token = token;
-    console.log('ok',this.token,this.user);
+    this.userId = userId;
+    this.imgUrl = userImg;
+  }
+  logOut = () =>{
+    this.displayLoader = true;
+    this.data.postApi('logOut',{id:this.userId, token:this.token}).subscribe((res:any)=> {      
+        if(res.logged){
+          localStorage.setItem('token',res.user.token);
+          localStorage.setItem('userId',res.user.id);
+          this.router.navigate(['/tracks'])
+          alert("User disconnected")
+        }
+        else {
+          alert("Erreur disconnection");
+        }
+        this.displayLoader = false;     
+    })
   }
   loadComponentLogin = () => {
     this.loadComponentLoader();

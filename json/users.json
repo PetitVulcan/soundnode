@@ -1,1 +1,70 @@
-[{"id":1,"login":"majora","nom":"Delattre","prenom":"Thomas","email":"majora@majora.fr","mdp":"majora","cMdp":"majora","playlists":[1,3],"likes":[1,10,7,4,3]},{"id":2,"login":"PetitVulcan","nom":"Di persio","prenom":"Anthony","email":"petivulcan@bjork.fr","mdp":"pv","cMdp":"pv","playlists":[2],"likes":[1,3,8,7],"token":"xyt1qf6tiki5vogidxd59"},{"id":3,"login":"Matt","nom":"Bray","prenom":"Mathieu","email":"mathieu@bray.fr","mdp":"matt","cMdp":"matt"},{"id":4,"login":"Sam","nom":"Samir","prenom":"Samir","email":"Samir","mdp":"sam","cMdp":"sam"}]
+[
+    {
+        "id": 1,
+        "imgUrl": "../assets/img/1.jpg",
+        "login": "Majora",
+        "nom": "Delattre",
+        "prenom": "Thomas",
+        "email": "majora@majora.fr",
+        "mdp": "majora",
+        "cMdp": "majora",
+        "playlists": [
+            1,
+            3
+        ],
+        "likes": [
+            1,
+            10,
+            7,
+            4,
+            3
+        ],
+        "token": ""
+    },
+    {
+        "id": 2,
+        "imgUrl": "../assets/img/2.jpg",
+        "login": "PetitVulcan",
+        "nom": "Di persio",
+        "prenom": "Anthony",
+        "email": "petivulcan@bjork.fr",
+        "mdp": "pv",
+        "cMdp": "pv",
+        "playlists": [
+            2
+        ],
+        "likes": [
+            1,
+            3,
+            8,
+            7
+        ],
+        "token": "42k82y22i4cb4b1djmfgr5"
+    },
+    {
+        "id": 3,
+        "imgUrl": "../assets/img/3.jpg",
+        "login": "Matt",
+        "nom": "Bray",
+        "prenom": "Mathieu",
+        "email": "mathieu@bray.fr",
+        "mdp": "matt",
+        "cMdp": "matt",
+        "playlists": [],
+        "likes": [],
+        "token": "p607bwr6rlt3v18j52nfiq"
+    },
+    {
+        "id": 4,
+        "imgUrl": "../assets/img/4.jpg",
+        "login": "Samir",
+        "nom": "TheBoss",
+        "prenom": "Samir",
+        "email": "Samir",
+        "mdp": "sam",
+        "cMdp": "sam",
+        "playlists": [],
+        "likes": [],
+        "token": "e1voaxit09v461u71b20mv"
+    }
+]
