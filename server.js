@@ -111,7 +111,7 @@ app.post('/logout', (req,res) => {
     let result = {};
     const u = users.find(x => x.id == status.id && x.token == status.token);
     result.error = (u) ? false : true ;
-    u.token=null;
+    u.token='';
     writefiles();
     res.json(result)
 })
