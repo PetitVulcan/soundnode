@@ -44,3 +44,7 @@
 .col-2{
     margin-top: 20px;
 }
+
+.ombre{
+    box-shadow: inset 0px 8px 7px -7px black;
+}
