@@ -20,7 +20,11 @@ export class UserStatusComponent implements OnInit {
   imgUrl;
   token;
   displayLoader = false
-  constructor(private resolver: ComponentFactoryResolver,private data:DataService, private router:Router) { }
+  constructor(private resolver: ComponentFactoryResolver,private data:DataService, private router:Router) {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => {
+        return false;
+      };
+  }
 
   ngOnInit() {
     const token = (localStorage.getItem('token')  ) ? localStorage.getItem('token') : '';
@@ -35,9 +39,8 @@ export class UserStatusComponent implements OnInit {
   logOut = () =>{
     this.displayLoader = true;
     this.data.postApi('logOut',{id:this.userId, token:this.token}).subscribe((res:any)=> {      
-        if(res.logged){
-          localStorage.setItem('token',res.user.token);
-          localStorage.setItem('userId',res.user.id);
+        if(!res.error){
+          localStorage.setItem('token', '');
           this.router.navigate(['/tracks'])
           alert("User disconnected")
         }

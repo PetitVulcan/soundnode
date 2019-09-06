@@ -110,9 +110,12 @@ app.post('/logout', (req,res) => {
     const status = req.body;
     let result = {};
     const u = users.find(x => x.id == status.id && x.token == status.token);
-    result.error = (u) ? false : true ;
-    u.token='';
-    writefiles();
+    result.error = true;
+    if (u) {
+        u.token = '';
+        result.error = false;
+    }
+    fs.writeFileSync('json/users.json',JSON.stringify(users, null, 4));
     res.json(result)
 })
 
