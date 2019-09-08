@@ -56,14 +56,17 @@ app.get('/get-playlist/:id', (req, res) => {
 });
 
 app.get('/get-user/:id', (req, res) => {
-    const id = Number(req.params.id);
-    const user = users.find((u) => u.id === id);
-
-    if (user) {
-        res.json({ error: false, user });
-    } else {
-        res.json({ error: true });
+    const infoLogin = req.body;
+    let result = {};
+    const u = users.find(x => x.id == infoLogin.id && x.token == infoLogin.token);
+    result.error = (u) ? false : true;
+    result.user = {};
+    for(let p in u) {
+        if(p != "mdp") {
+            result.user[p] = u[p];
+        }
     }
+    res.json(result);
 });
 
 app.post('/addUser',function(req,res){
@@ -80,17 +83,12 @@ app.post('/addUser',function(req,res){
 })
 
 app.post('/isLogged',function(req,res){
-    let data = req.body;
-    
-    let user = users.find(x=>x.id ==data.id && x.token == data.token);
-    if(user)
-    {
-        console.log(user);
-        res.json({access:true});       
-    }
-    else {
-        res.json({access:false});
-    }
+    const infoLogin = req.body;
+    let result = {};
+    const u = users.find(x => x.id == infoLogin.id && x.token == infoLogin.token);
+    result.error = (u) ? false : true;
+    result.login = u.login;
+    res.json(result)
 })
 
 app.post('/login',function(req,res){
@@ -107,15 +105,12 @@ app.post('/login',function(req,res){
 })
 
 app.post('/logout', (req,res) => {
-    const status = req.body;
+    const infoLogin = req.body;
     let result = {};
-    const u = users.find(x => x.id == status.id && x.token == status.token);
-    result.error = true;
-    if (u) {
-        u.token = '';
-        result.error = false;
-    }
-    fs.writeFileSync('json/users.json',JSON.stringify(users, null, 4));
+    const u = users.find(x => x.id == infoLogin.id && x.token == infoLogin.token);
+    result.error = (u) ? false : true;
+    u.token = '';
+    writeFiles();
     res.json(result)
 })
 

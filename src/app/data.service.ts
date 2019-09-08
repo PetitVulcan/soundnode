@@ -7,8 +7,11 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getApi = (link) => this.http.get(`${this.baseUrl}${link}`);
+  getApi = (link) =>{
+    return this.http.get(this.baseUrl + link);
+  } 
 
-  postApi = (link, data) => this.http.post(`${this.baseUrl}${link}`, data);
-
+  postApi = (link, data) =>{
+    return this.http.post(this.baseUrl + link , data);
+  }
 }

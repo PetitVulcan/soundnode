@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token',res.user.token);
           localStorage.setItem('userlogin',res.user.login);
           localStorage.setItem('userId',res.user.id);
-          localStorage.setItem('userImg',res.user.imgUrl);
           this.router.navigate(['/tracks'])
           alert("User connected")
         }
