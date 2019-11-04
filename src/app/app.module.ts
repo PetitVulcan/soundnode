@@ -18,6 +18,7 @@ import { AlertComponent } from './user/alert/alert.component';
 import { LoginComponent } from './user/login/login.component';
 import { LoaderComponent } from './user/loader/loader.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { GuardService } from './guard.service';
 
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
@@ -52,6 +53,7 @@ const routes : Routes =[
     DataService,
     TrackService,
     SearchService,
+    GuardService
   ],
   bootstrap: [AppComponent],
   entryComponents : [AlertComponent, LoginComponent, SignInComponent, LoaderComponent]
