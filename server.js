@@ -55,7 +55,7 @@ app.get('/get-playlist/:id', (req, res) => {
     }
 });
 
-app.get('/get-user/:id', (req, res) => {
+app.post('/get-user', (req, res) => {
     const infoLogin = req.body;
     let result = {};
     const u = users.find(x => x.id == infoLogin.id && x.token == infoLogin.token);

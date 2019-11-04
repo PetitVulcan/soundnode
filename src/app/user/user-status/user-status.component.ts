@@ -20,7 +20,7 @@ export class UserStatusComponent implements OnInit {
   user:any = undefined;
   userId;
   imgUrl;
-  token;
+  token = '';
   displayLoader = false
   constructor(private resolver: ComponentFactoryResolver,private data:DataService, private router:Router,private guard:GuardService, private app:AppComponent) {
       this.router.routeReuseStrategy.shouldReuseRoute = () => {
@@ -40,12 +40,13 @@ export class UserStatusComponent implements OnInit {
     })
   }
   getUser = () => {
-    this.data.postApi('/get-user/:id', {id : localStorage.getItem('id'), token : localStorage.getItem('token')}).subscribe((res:any)=> {
+    this.data.postApi('/get-user', {id : localStorage.getItem('id'), token : localStorage.getItem('token')}).subscribe((res:any)=> {
       if(res.error) {
         this.user = undefined;
       }
       else {
         this.user = res.user
+        console.log(this.user);
       }
     })
   }
