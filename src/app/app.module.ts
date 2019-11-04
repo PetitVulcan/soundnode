@@ -19,6 +19,7 @@ import { LoginComponent } from './user/login/login.component';
 import { LoaderComponent } from './user/loader/loader.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 
+
 const routes : Routes =[
   {path:'', redirectTo : 'tracks', pathMatch : 'full'},
   {path: 'user', loadChildren:() =>import('./user/user.module').then((mod)=>mod.UserModule)},
@@ -51,7 +52,7 @@ const routes : Routes =[
   providers: [
     DataService,
     TrackService,
-    SearchService,
+    SearchService
   ],
   bootstrap: [AppComponent],
   entryComponents : [AlertComponent, LoginComponent, SignInComponent, LoaderComponent]
